@@ -22,9 +22,6 @@ class Ui_MainWindow(object):
         except FileExistsError:
             os.system(f'move *.mp4 "%systemdrive%\\Users\\{username}\\Vidownload"')
         self.label_3.setText(f"Downloaded {title}!")
-        import time
-        time.sleep(2)
-        self.label_3.setText("Select Download to begin the download.")
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(849, 440)
