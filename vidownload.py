@@ -8,8 +8,8 @@ class Ui_MainWindow(object):
         username = getpass.getuser()
         os.system(f'explorer "%systemdrive%\\Users\\{username}\\Vidownload"')
     def code(self):
-        self.label_3.setText("Downloading...")
         url = self.textEdit.toPlainText()
+        global video
         video = YouTube(url)
         title = video.title
         self.label_3.setText(f"Downloading {title}...")
@@ -21,7 +21,7 @@ class Ui_MainWindow(object):
             os.system(f'move *.mp4 "%systemdrive%\\Users\\{username}\\Vidownload"')
         except FileExistsError:
             os.system(f'move *.mp4 "%systemdrive%\\Users\\{username}\\Vidownload"')
-        self.label_3.setText(f"Downloaded {title}!")
+        self.label_3.setText(f"Downloaded {title}")
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(849, 440)
@@ -52,24 +52,24 @@ class Ui_MainWindow(object):
         self.pushButton.setObjectName("pushButton")
         self.pushButton.clicked.connect(self.code)
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(270, 300, 351, 51))
+        self.label_3.setGeometry(QtCore.QRect(100, 300, 691, 51))
         font = QtGui.QFont()
         font.setPointSize(14)
-        self.label_3.setFont(font)
-        self.label_3.setObjectName("label_3")
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QtCore.QRect(100, 280, 691, 51))
+        self.label_3.setFont(font) 
+        font2 = QtGui.QFont()
+        font2.setFamily(u"MS Shell Dlg 2")
+        font2.setPointSize(14)
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_2.setObjectName(u"pushButton_2")
         self.pushButton_2.setGeometry(QtCore.QRect(340, 360, 191, 61))
-        font = QtGui.QFont()
-        font.setFamily("MS Shell Dlg 2")
-        font.setPointSize(14)
-        self.pushButton_2.setFont(font)
+        self.pushButton_2.setFont(font2)
         self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_2.setAcceptDrops(False)
         self.pushButton_2.setAutoFillBackground(False)
-        self.pushButton_2.setDefault(False)
         self.pushButton_2.setFlat(False)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.pushButton_2.clicked.connect(self.openfilelocation)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -88,12 +88,10 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "Select Download to begin the download."))
         self.pushButton_2.setText(_translate("MainWindow", "Open File Location"))
 
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+import sys
+app = QtWidgets.QApplication(sys.argv)
+MainWindow = QtWidgets.QMainWindow()
+ui = Ui_MainWindow()
+ui.setupUi(MainWindow)
+MainWindow.show()
+sys.exit(app.exec_())
