@@ -8,8 +8,8 @@ class Ui_MainWindow(object):
         username = getpass.getuser()
         os.system(f'explorer "%systemdrive%\\Users\\{username}\\Vidownload"')
     def code(self):
+        QtCore.QCoreApplication.processEvents()
         url = self.textEdit.toPlainText()
-        global video
         video = YouTube(url)
         title = video.title
         self.label_3.setText(f"Downloading {title}...")
@@ -70,6 +70,7 @@ class Ui_MainWindow(object):
         self.pushButton_2.setAcceptDrops(False)
         self.pushButton_2.setAutoFillBackground(False)
         self.pushButton_2.setFlat(False)
+        self.pushButton_2.clicked.connect(self.openfilelocation)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
