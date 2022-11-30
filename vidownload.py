@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
         self.label_3.setText(f"Downloaded {title}")
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(849, 440)
+        MainWindow.resize(849, 455)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -57,7 +57,7 @@ class Ui_MainWindow(object):
         font.setPointSize(14)
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setGeometry(QtCore.QRect(100, 280, 691, 51))
+        self.label_3.setGeometry(QtCore.QRect(100, 280, 681, 51))
         self.label_3.setFont(font) 
         font2 = QtGui.QFont()
         font2.setFamily(u"MS Shell Dlg 2")
@@ -89,10 +89,22 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "Select Download to begin the download."))
         self.pushButton_2.setText(_translate("MainWindow", "Open File Location"))
 
-import sys
-app = QtWidgets.QApplication(sys.argv)
-MainWindow = QtWidgets.QMainWindow()
-ui = Ui_MainWindow()
-ui.setupUi(MainWindow)
-MainWindow.show()
-sys.exit(app.exec_())
+import darkdetect
+import qdarkstyle
+if darkdetect.isDark() == True:
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
+if darkdetect.isLight() == True:
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
