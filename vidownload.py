@@ -81,9 +81,9 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "AryaSoft Vidownload"))
-        self.label.setText(_translate("MainWindow", "AryaSoft Vidownload"))
-        self.label_2.setText(_translate("MainWindow", "Welcome to Vidownload by AryaSoft! Enter a YouTube Video URL to download:"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Vidownload"))
+        self.label.setText(_translate("MainWindow", "Vidownload"))
+        self.label_2.setText(_translate("MainWindow", "Welcome to Vidownload by Aryaman! Enter a YouTube Video URL to download:"))
         self.textEdit.setPlaceholderText(_translate("MainWindow", "URL goes here"))
         self.pushButton.setText(_translate("MainWindow", "Download"))
         self.label_3.setText(_translate("MainWindow", "Select Download to begin the download."))
